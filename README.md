@@ -76,3 +76,25 @@ minikube dashboard
 Maka tapilanya akan seperti berikut: 
 
 ![minikube dashboard](docs/images/minikube-dashboard.png)
+
+## Expose port
+
+Untuk mengakses service springboot kita perlu expose service-nya dengan perintah berikut:
+
+```bash
+kubectl expose deployment springboot-k8s-example \
+--type=LoadBalancer \
+--name=springboot-k8s-service-example \
+--port=80 \
+--target-port=8080
+```
+
+Setelah membuat service di kubernate, sekarang kita bisa view hasilnya dengan menggunakan perintahya seperti berikut:
+
+```bash
+minikube service springboot-k8s-service-example
+```
+
+berikut hasilnya: 
+
+![hasilnya](docs/images/springboot-k8s-example.png)
