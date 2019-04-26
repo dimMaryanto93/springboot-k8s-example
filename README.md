@@ -45,3 +45,34 @@ Berikut outputnya:
 💗  kubectl is now configured to use "minikube"
 🏄  Done! Thank you for using minikube!
 ```
+
+## run service springboot into k8s
+
+berikut perintahnya untuk merunning application springboot di kubernates:
+
+```bash
+kubectl run springboot-k8s-example --image=dimmaryanto93/springboot-k8s-example:0.0.1-SNAPSHOT --port=8080
+```
+
+Selanjutnya kita bisa check lewat kubernate-api, dengan perintah berikut:
+
+```bash
+kubectl get deployments
+```
+
+berikut outputnya: 
+
+```bash
+NAME                     READY   UP-TO-DATE   AVAILABLE   AGE
+springboot-k8s-example   0/1     1            0           41s
+```
+
+Sekarang kita tinggal tunggu sampe statusnya READY, dan pastikan juga tidak ada error. selain itu juga kita bisa menggunakan ui (dashboard) dengan menggunakan command berikut: 
+
+```bash
+minikube dashboard
+```
+
+Maka tapilanya akan seperti berikut: 
+
+![minikube dashboard](docs/images/minikube-dashboard.png)
